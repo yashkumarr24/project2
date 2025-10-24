@@ -25,7 +25,7 @@ const About = () => {
       id: 1,
       name: 'Ram Lal Lohar',
       position: 'Owner • Expert in Everything',
-      image: '/model.webp',
+      image: '/model.jpg',
       experience: '20+ years',
       specialties: ['All Systems', 'Diagnostics', 'Customer Trust'],
       story: 'Ram Lal leads the workshop with decades of hands-on expertise across every area of automotive care. From complex diagnostics to final quality checks, he ensures every car leaves in perfect shape.',
@@ -35,7 +35,7 @@ const About = () => {
       id: 2,
       name: 'Ganesji',
       position: 'Mechanical Expert • Engine Specialist',
-      image: '/model.webp',
+      image: '/model.jpg',
       experience: '12+ years',
       specialties: ['Engine Overhaul', 'Tuning', 'Diagnostics'],
       story: 'Known for precise engine work—from overhauls to fine tuning—Ganesji brings performance and reliability back to every vehicle.',
@@ -45,7 +45,7 @@ const About = () => {
       id: 3,
       name: 'Yash Kumar',
       position: 'Co-owner • Operations & Service',
-      image: '/model.webp',
+      image: '/model.jpg',
       experience: '10+ years',
       specialties: ['Workshop Operations', 'Customer Experience', 'Service Planning'],
       story: 'Co-leading the workshop, Yash focuses on smooth operations and exceptional customer experience, ensuring timely, transparent service.',
@@ -212,7 +212,14 @@ const About = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <div className="member-image">
-                    <img src={teamMembers[currentSlide].image} alt={teamMembers[currentSlide].name} />
+                    <img 
+                      src={teamMembers[currentSlide].image} 
+                      alt={teamMembers[currentSlide].name}
+                      onError={(e) => {
+                        e.target.src = '/model.jpg';
+                      }}
+                      loading="lazy"
+                    />
                     <div className="member-overlay">
                       <div className="social-links">
                         {teamMembers[currentSlide].social.linkedin && (

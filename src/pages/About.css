@@ -136,19 +136,20 @@
 
 .member-image {
   position: relative;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
-  width: 260px; /* portrait width */
-  height: 340px; /* portrait height ~3:4 */
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+  width: 200px; /* passport width */
+  height: 250px; /* passport height ~4:5 ratio */
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  margin: 0 auto;
 }
 
 .member-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   transition: transform 0.3s ease;
   display: block;
 }
@@ -596,8 +597,8 @@
   }
   
   .member-image {
-    height: 300px;
-    width: 220px;
+    height: 200px;
+    width: 160px;
     margin: 0 auto;
   }
   

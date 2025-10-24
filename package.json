@@ -25,7 +25,8 @@
     "start-optimized": "craco start",
     "build-optimized": "craco build",
     "analyze": "npm run build && npx serve -s build",
-    "optimize-images": "node optimize-images.js"
+    "optimize-images": "node optimize-images.js",
+    "create-team-images": "node create-passport-placeholder.js"
   },
   "eslintConfig": {
     "extends": [
