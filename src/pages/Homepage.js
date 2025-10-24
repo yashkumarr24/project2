@@ -124,16 +124,30 @@ const Homepage = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-background">
-          <img 
-            src="/jeep-hero.webp" 
-            alt="Professional automotive services - Yash Car Workshop" 
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            width="1920"
-            height="1080"
-            style={{ display: 'block' }}
-          />
+          <picture>
+            <source 
+              media="(max-width: 768px)" 
+              srcSet="/jeep-hero.webp" 
+              width="768" 
+              height="432"
+            />
+            <source 
+              media="(max-width: 1200px)" 
+              srcSet="/jeep-hero.webp" 
+              width="1200" 
+              height="675"
+            />
+            <img 
+              src="/jeep-hero.webp" 
+              alt="Professional automotive services - Yash Car Workshop" 
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="1920"
+              height="1080"
+              style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </picture>
           <div className="hero-overlay"></div>
         </div>
 

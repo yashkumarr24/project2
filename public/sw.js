@@ -1,12 +1,14 @@
-const CACHE_NAME = 'yash-car-workshop-v1';
+const CACHE_NAME = 'yash-car-workshop-v2';
 const urlsToCache = [
   '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
-  '/logo.webp',
   '/jeep-hero.webp',
+  '/logo.webp',
   '/manifest.json'
 ];
+
+// Cache all images aggressively
+const imageExtensions = ['.webp', '.jpg', '.jpeg', '.png', '.gif', '.svg'];
+const isImage = (url) => imageExtensions.some(ext => url.includes(ext));
 
 // Install event - cache resources
 self.addEventListener('install', (event) => {
@@ -19,32 +21,43 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Fetch event - serve from cache when possible
+// Fetch event - aggressive caching strategy
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
+  // Cache images with cache-first strategy
+  if (isImage(event.request.url)) {
+    event.respondWith(
+      caches.match(event.request).then((response) => {
         if (response) {
           return response;
         }
-        
-        return fetch(event.request).then((response) => {
-          // Don't cache non-successful responses
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-
-          // Clone the response
-          const responseToCache = response.clone();
-
-          caches.open(CACHE_NAME)
-            .then((cache) => {
+        return fetch(event.request).then((fetchResponse) => {
+          if (fetchResponse && fetchResponse.status === 200) {
+            const responseToCache = fetchResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
               cache.put(event.request, responseToCache);
             });
-
-          return response;
+          }
+          return fetchResponse;
         });
+      })
+    );
+    return;
+  }
+
+  // Network-first for HTML/API requests
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        if (response && response.status === 200) {
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request);
       })
   );
 });

@@ -32,9 +32,10 @@ function App() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '50vh'
+            height: '50vh',
+            minHeight: '300px'
           }}>
-            <LoadingSpinner size="large" />
+            <div className="loading-spinner"></div>
           </div>
         }>
           <AnimatePresence mode="wait">

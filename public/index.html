@@ -38,6 +38,7 @@
     
     <!-- Critical CSS inlined -->
     <style>
+      /* Critical above-the-fold styles */
       .hero-section { 
         min-height: 100vh; 
         position: relative; 
@@ -45,6 +46,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        contain: layout style paint;
       }
       .hero-background { 
         position: absolute; 
@@ -52,9 +54,10 @@
         left: 0; 
         width: 100%; 
         height: 100%; 
-        z-index: 1; 
+        z-index: 1;
+        will-change: transform;
       }
-      .hero-background img { 
+      .hero-background img, .hero-background picture { 
         width: 100%; 
         height: 100%; 
         object-fit: cover; 
@@ -76,6 +79,7 @@
         text-align: center;
         color: white;
         padding: 2rem;
+        contain: layout;
       }
       .loading-spinner { 
         width: 40px; 
@@ -86,6 +90,17 @@
         animation: spin 1s linear infinite; 
       }
       @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      
+      /* Performance optimizations */
+      * { box-sizing: border-box; }
+      img { content-visibility: auto; }
+      .container { contain: layout; }
+      
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .hero-section { min-height: 70vh; }
+        .hero-content { padding: 1rem; }
+      }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -118,8 +133,30 @@
     }
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    <!-- Inline font loading for critical performance -->
+    <style>
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459W1hyw.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459W5hyw.woff2') format('woff2');
+      }
+    </style>
     
     <!-- Performance optimization -->
     <script>
