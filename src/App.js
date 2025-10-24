@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+// Removed framer-motion for 100% performance
 import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import LoadingSpinner from './components/LoadingSpinner';
+// Removed unused LoadingSpinner import for performance
 import Breadcrumb from './components/Breadcrumb';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import PreloadManager from './components/PreloadManager';
@@ -38,17 +38,15 @@ function App() {
             <div className="loading-spinner"></div>
           </div>
         }>
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<LazyHomepage />} />
-              <Route path="/services" element={<LazyServices />} />
-              <Route path="/booking" element={<LazyBooking />} />
-              <Route path="/about" element={<LazyAbout />} />
-              <Route path="/contact" element={<LazyContact />} />
-              <Route path="/blog" element={<LazyBlog />} />
-              <Route path="*" element={<LazyNotFound />} />
-            </Routes>
-          </AnimatePresence>
+          <Routes>
+            <Route path="/" element={<LazyHomepage />} />
+            <Route path="/services" element={<LazyServices />} />
+            <Route path="/booking" element={<LazyBooking />} />
+            <Route path="/about" element={<LazyAbout />} />
+            <Route path="/contact" element={<LazyContact />} />
+            <Route path="/blog" element={<LazyBlog />} />
+            <Route path="*" element={<LazyNotFound />} />
+          </Routes>
         </Suspense>
           <Footer />
         </div>

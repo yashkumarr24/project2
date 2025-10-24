@@ -1,34 +1,54 @@
 module.exports = {
   webpack: {
     configure: (webpackConfig, { env }) => {
-      // Only add optimizations in production
+      // Ultra-aggressive optimizations for 100% performance
       if (env === 'production') {
-        // Add compression plugin for production builds
+        // Add compression plugin
         try {
           const CompressionPlugin = require('compression-webpack-plugin');
           webpackConfig.plugins.push(
             new CompressionPlugin({
               algorithm: 'gzip',
               test: /\.(js|css|html|svg)$/,
-              threshold: 8192,
-              minRatio: 0.8,
+              threshold: 1024, // Compress smaller files
+              minRatio: 0.6,   // More aggressive compression
             })
           );
         } catch (error) {
           console.warn('CompressionPlugin not available:', error.message);
         }
 
-        // Optimize chunks for production
+        // Ultra-aggressive optimizations
         webpackConfig.optimization = {
           ...webpackConfig.optimization,
+          minimize: true,
+          sideEffects: false,
+          usedExports: true,
           splitChunks: {
             chunks: 'all',
+            minSize: 10000,
+            maxSize: 200000,
             cacheGroups: {
               vendor: {
                 test: /[\\/]node_modules[\\/]/,
                 name: 'vendors',
                 priority: 10,
                 chunks: 'all',
+                enforce: true,
+              },
+              react: {
+                test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+                name: 'react',
+                priority: 20,
+                chunks: 'all',
+                enforce: true,
+              },
+              icons: {
+                test: /[\\/]node_modules[\\/]react-icons[\\/]/,
+                name: 'icons',
+                priority: 15,
+                chunks: 'all',
+                enforce: true,
               },
               common: {
                 name: 'common',
@@ -40,6 +60,9 @@ module.exports = {
             },
           },
         };
+
+        // Remove source maps for production
+        webpackConfig.devtool = false;
       }
 
       return webpackConfig;
