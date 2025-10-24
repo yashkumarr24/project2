@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yashcar.netlify.app/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1

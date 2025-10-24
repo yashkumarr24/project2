@@ -3,18 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaCar, 
   FaTint, 
-  FaCog, 
   FaWrench, 
+  FaCog, 
   FaHammer, 
-  FaPaintBrush, 
-  FaStar,
-  FaCheckCircle,
+  FaPaintBrush,
+  FaTimes,
   FaClock,
   FaTools,
+  FaCheckCircle,
   FaShieldAlt,
-  FaLeaf,
-  FaTimes
+  FaStar,
+  FaLeaf
 } from 'react-icons/fa';
+import SEOHead from '../components/SEOHead';
 import './Services.css';
 
 const Services = () => {
@@ -30,12 +31,12 @@ const Services = () => {
   ];
 
   const localImages = {
-    service: '/car service.jpg',
-    washing: '/car washing and spa.jpg',
-    engine: '/engine work.jpg',
-    mechanical: '/mechanical work.jpg',
-    paint: '/dent and paint.jpg',
-    accessories: '/car accessories.jpg'
+    service: '/car service.webp',
+    washing: '/car washing and spa.webp',
+    engine: '/engine work.webp',
+    mechanical: '/mechanical work.webp',
+    paint: '/dent and paint.webp',
+    accessories: '/car accessories.webp'
   };
 
   const services = [
@@ -195,6 +196,11 @@ const Services = () => {
 
   return (
     <div className="services-page">
+      <SEOHead 
+        title="Car Services - Yash Car Workshop | AC Repair, Denting & Painting"
+        description="Complete automotive services: car service, AC repair, denting & painting, washing, engine work, and more. Professional mechanics with quality guarantee."
+        canonical="/services"
+      />
       {/* Progress Bar Section */}
       <section className="progress-section">
         <div className="container">
@@ -274,7 +280,7 @@ const Services = () => {
                     alt={service.name}
                     loading="lazy"
                     onError={(e) => {
-                      e.currentTarget.src = '/logo.png';
+                      e.currentTarget.src = '/logo.webp';
                     }}
                   />
                   <div className="service-overlay">
@@ -334,7 +340,7 @@ const Services = () => {
                     alt={selectedService.name}
                     loading="lazy"
                     onError={(e) => {
-                      e.currentTarget.src = '/logo.png';
+                      e.currentTarget.src = '/logo.webp';
                     }}
                   />
                 </div>

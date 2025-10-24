@@ -16,6 +16,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Critical CSS - Above the fold optimization */
+.App {
+  min-height: 100vh;
+}
+
+/* Font loading optimization */
+* {
+  font-display: swap;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

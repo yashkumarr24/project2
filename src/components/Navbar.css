@@ -32,12 +32,14 @@
 }
 
 .logo-container {
-  display: flex;
+  display: flex !important;
   align-items: center;
   gap: 0;
   font-family: 'Manrope', sans-serif;
   font-weight: 300;
   font-size: 1.8rem;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .logo-image {
@@ -53,12 +55,20 @@
 }
 
 .logo-text {
-  color: #ffffff;
+  color: #ffffff !important;
   font-family: 'Manrope', sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.5px;
+  font-weight: 300 !important;
+  font-size: 1.8rem !important;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(220, 38, 38, 0.2);
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  line-height: 1.2;
+  padding: 5px 0;
 }
 
 .nav-menu {

@@ -4,17 +4,42 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Yash Car Workshop - Your One-Stop Car Care Solution. Professional car service, washing, engine work, mechanical repairs, body work, and more."
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="description" content="Yash Car Workshop - Professional automotive services including car service, AC repair, denting & painting, and more. Expert mechanics with 20+ years experience." />
+    <meta name="keywords" content="car service, automotive repair, car workshop, AC service, denting painting, car maintenance" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.webp" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/jeep-hero.webp" as="image" type="image/webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "Yash Car Workshop",
+      "description": "Professional automotive services including car service, AC repair, denting & painting, and more.",
+      "url": "https://yashcar.netlify.app",
+      "telephone": "+91-9414609368",
+      "email": "rammalviya5@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "openingHours": ["Mo-Sa 09:00-18:00"],
+      "priceRange": "$$",
+      "areaServed": "Local Area"
+    }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>Yash Car Workshop - Your One-Stop Car Care Solution</title>
+    <title>Yash Car Workshop - Professional Automotive Services</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

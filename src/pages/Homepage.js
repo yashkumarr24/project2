@@ -1,32 +1,33 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { 
   FaCar, 
-  FaWrench, 
   FaTint, 
+  FaWrench, 
   FaCog, 
   FaHammer, 
   FaPaintBrush, 
   FaStar,
   FaQuoteLeft
 } from 'react-icons/fa';
+import SEOHead from '../components/SEOHead';
 import './Homepage.css';
 
 const Homepage = () => {
   const localImages = {
-    service: '/car service.jpg',
-    ac: '/ac service.jpg',
-    paint: '/dent and paint.jpg',
-    wash: '/car washing and spa.jpg',
-    tyres: '/tyres.jpg',
-    battery: '/Batteries.jpg',
-    detailing: '/Detailing Services.jpg',
-    inspection: '/Car Inspections.jpg',
-    lights: '/Windshield & Lights.jpg',
-    suspension: '/Suspension & Fitments.jpg',
-    clutch: '/mechanical work.jpg',
-    insurance: '/Insurance Claims.jpg'
+    service: '/car service.webp',
+    ac: '/ac service.webp',
+    paint: '/dent and paint.webp',
+    wash: '/car washing and spa.webp',
+    tyres: '/tyres.webp',
+    battery: '/Batteries.webp',
+    detailing: '/Detailing Services.webp',
+    inspection: '/Car Inspections.webp',
+    lights: '/Windshield & Lights.webp',
+    suspension: '/Suspension & Fitments.webp',
+    clutch: '/mechanical work.webp',
+    insurance: '/Insurance Claims.webp'
   };
 
   const services = [
@@ -96,6 +97,11 @@ const Homepage = () => {
 
   return (
     <div className="homepage">
+      <SEOHead 
+        title="Yash Car Workshop - Expert Automotive Services"
+        description="Professional car service, AC repair, denting & painting, and automotive maintenance. Expert mechanics with 20+ years experience. Quality service you can trust."
+        canonical="/"
+      />
       {/* Particle Animation */}
       <div className="particles">
         {particleConfigs.map(p => (
@@ -118,7 +124,7 @@ const Homepage = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-background">
-          <img src="/jeep-hero.jpg?v=3" alt="Jeep in misty palm forest" />
+          <img src="/jeep-hero.webp?v=3" alt="Jeep in misty palm forest" />
           <div className="hero-overlay"></div>
         </div>
 
@@ -196,7 +202,7 @@ const Homepage = () => {
                     alt={service.name}
                     loading="lazy"
                     onError={(e) => {
-                      e.currentTarget.src = '/logo.png';
+                      e.currentTarget.src = '/logo.webp';
                     }}
                   />
                 </div>
@@ -393,9 +399,9 @@ const Homepage = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="cta-title">Download Yash Car App</h2>
+            <h2 className="cta-title">Ready to Service Your Car?</h2>
             <p className="cta-description">
-              Choose and book a seamless car service experience and get upto Rs 1500 off with the Yash Car App
+              Book your car service today and experience professional automotive care you can trust
             </p>
             <div className="cta-buttons">
               <Link to="/booking" className="btn btn-primary">
