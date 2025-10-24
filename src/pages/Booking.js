@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  FaCar, 
   FaCalendarAlt, 
   FaUser, 
   FaCheckCircle,
@@ -14,6 +13,7 @@ import {
   FaPaintBrush,
   FaTools
 } from 'react-icons/fa';
+import SEOHead from '../components/SEOHead';
 import './Booking.css';
 
 const Booking = () => {
@@ -329,6 +329,12 @@ const Booking = () => {
 
   return (
     <div className="booking-page">
+      <SEOHead 
+        title="Book Service - Yash Car Workshop | Online Appointment Booking"
+        description="Book your car service appointment online at Yash Car Workshop. Choose from AC repair, denting & painting, car wash, and more. Easy online booking system."
+        canonical="/booking"
+        keywords="book car service, online appointment booking, car service scheduling, automotive service booking, yash car workshop booking"
+      />
       <div className="container">
         {/* Header */}
         <motion.div

@@ -9,7 +9,7 @@ const SEOHead = ({
   ogImage = "/jeep-hero.webp",
   ogType = "website"
 }) => {
-  const baseUrl = "https://yashcar.netlify.app";
+  const baseUrl = "https://yashcar.vercel.app";
   const fullCanonical = canonical ? `${baseUrl}${canonical}` : baseUrl;
   const fullOgImage = `${baseUrl}${ogImage}`;
 
@@ -71,24 +71,58 @@ const SEOHead = ({
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Car Service & Maintenance"
+                  "name": "Car Service & Maintenance",
+                  "description": "Comprehensive vehicle maintenance and inspection services"
                 }
               },
               {
                 "@type": "Offer", 
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "AC Service & Repair"
+                  "name": "AC Service & Repair",
+                  "description": "Air conditioning system diagnosis, repair, and maintenance"
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service", 
-                  "name": "Denting & Painting"
+                  "name": "Denting & Painting",
+                  "description": "Body work, dent removal, and professional automotive painting"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service", 
+                  "name": "Car Washing & Detailing",
+                  "description": "Professional car washing, waxing, and interior detailing services"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service", 
+                  "name": "Engine Diagnostics & Repair",
+                  "description": "Engine troubleshooting, diagnostics, and mechanical repairs"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service", 
+                  "name": "Tyre Services",
+                  "description": "Tyre installation, balancing, alignment, and replacement"
                 }
               }
             ]
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "150",
+            "bestRating": "5",
+            "worstRating": "1"
           }
         })}
       </script>

@@ -17,6 +17,7 @@ import {
   FaPaperPlane,
   FaCheckCircle
 } from 'react-icons/fa';
+import SEOHead from '../components/SEOHead';
 import './Contact.css';
 
 const Contact = () => {
@@ -64,14 +65,15 @@ const Contact = () => {
     }
   ];
 
-  const socialLinks = [
-    { icon: FaWhatsapp, url: 'https://wa.me/919414609368?text=Hi%2C%20I%20want%20to%20book%20a%20car%20service.', color: '#25d366', label: 'WhatsApp' },
-    { icon: FaTelegram, url: 'https://t.me/yashcarworkshop', color: '#0088cc', label: 'Telegram' },
-    { icon: FaFacebook, url: 'https://facebook.com/yashcarworkshop', color: '#1877f2', label: 'Facebook' },
-    { icon: FaInstagram, url: 'https://instagram.com/yashcarworkshop', color: '#e4405f', label: 'Instagram' },
-    { icon: FaTwitter, url: 'https://twitter.com/yashcarworkshop', color: '#1da1f2', label: 'Twitter' },
-    { icon: FaLinkedin, url: 'https://linkedin.com/company/yashcarworkshop', color: '#0077b5', label: 'LinkedIn' }
-  ];
+  // Social links for contact page
+  // const socialLinks = [
+  //   { icon: FaWhatsapp, url: 'https://wa.me/919414609368?text=Hi%2C%20I%20want%20to%20book%20a%20car%20service.', color: '#25d366', label: 'WhatsApp' },
+  //   { icon: FaTelegram, url: 'https://t.me/yashcarworkshop', color: '#0088cc', label: 'Telegram' },
+  //   { icon: FaFacebook, url: 'https://facebook.com/yashcarworkshop', color: '#1877f2', label: 'Facebook' },
+  //   { icon: FaInstagram, url: 'https://instagram.com/yashcarworkshop', color: '#e4405f', label: 'Instagram' },
+  //   { icon: FaTwitter, url: 'https://twitter.com/yashcarworkshop', color: '#1da1f2', label: 'Twitter' },
+  //   { icon: FaLinkedin, url: 'https://linkedin.com/company/yashcarworkshop', color: '#0077b5', label: 'LinkedIn' }
+  // ];
 
   const services = [
     'Car Service',
@@ -116,6 +118,12 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <SEOHead 
+        title="Contact Us - Yash Car Workshop | Get Quote & Book Service"
+        description="Contact Yash Car Workshop for professional car services. Call +91-9414609368 or email rammalviya5@gmail.com. Get quotes and book appointments online."
+        canonical="/contact"
+        keywords="contact yash car workshop, car service booking, automotive service quote, car repair contact, workshop phone number"
+      />
       {/* Hero Section */}
       <section className="contact-hero">
         <div className="hero-background">

@@ -14,6 +14,7 @@ import {
   FaFacebook,
   FaInstagram
 } from 'react-icons/fa';
+import SEOHead from '../components/SEOHead';
 import './About.css';
 
 const About = () => {
@@ -122,6 +123,12 @@ const About = () => {
 
   return (
     <div className="about-page">
+      <SEOHead 
+        title="About Us - Yash Car Workshop | 20+ Years Experience"
+        description="Learn about Yash Car Workshop's 20+ years of automotive expertise. Meet our skilled team led by Ram Lal Lohar, dedicated to quality car service and customer satisfaction."
+        canonical="/about"
+        keywords="about yash car workshop, automotive experts, car service experience, professional mechanics, car workshop team"
+      />
       {/* Hero Section */}
       <section className="about-hero">
         <div className="hero-background">

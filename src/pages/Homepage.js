@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
@@ -124,7 +124,16 @@ const Homepage = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-background">
-          <img src="/jeep-hero.webp?v=3" alt="Jeep in misty palm forest" />
+          <img 
+            src="/jeep-hero.webp" 
+            alt="Professional automotive services - Yash Car Workshop" 
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="1920"
+            height="1080"
+            style={{ display: 'block' }}
+          />
           <div className="hero-overlay"></div>
         </div>
 
@@ -286,10 +295,10 @@ const Homepage = () => {
         <div className="container">
           <div className="stats-grid">
             {[
-              { number: '3 Million+', label: 'Cars Serviced' },
-              { number: '25 Lacs+', label: 'Happy Customers' },
-              { number: '4.0', label: 'star Average Rating' },
-              { number: '1000+', label: 'Touch Points In India' }
+              { number: '20,000+', label: 'Cars Serviced' },
+              { number: '15,000+', label: 'Happy Customers' },
+              { number: '4.8', label: 'Star Average Rating' },
+              { number: '20+', label: 'Years of Experience' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

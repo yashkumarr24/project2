@@ -2,18 +2,98 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#1e3a8a" />
     <meta name="description" content="Yash Car Workshop - Professional automotive services including car service, AC repair, denting & painting, and more. Expert mechanics with 20+ years experience." />
-    <meta name="keywords" content="car service, automotive repair, car workshop, AC service, denting painting, car maintenance" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yashcar.vercel.app/" />
+    <meta property="og:title" content="Yash Car Workshop - Professional Automotive Services" />
+    <meta property="og:description" content="Expert automotive services including car service, AC repair, denting & painting, and more. Professional mechanics with 20+ years experience." />
+    <meta property="og:image" content="https://yashcar.vercel.app/logo.webp" />
+    <meta property="og:site_name" content="Yash Car Workshop" />
+    <meta property="og:locale" content="en_IN" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yashcar.vercel.app/" />
+    <meta property="twitter:title" content="Yash Car Workshop - Professional Automotive Services" />
+    <meta property="twitter:description" content="Expert automotive services including car service, AC repair, denting & painting, and more. Professional mechanics with 20+ years experience." />
+    <meta property="twitter:image" content="https://yashcar.vercel.app/logo.webp" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yashcar.vercel.app/" />
+    <meta name="keywords" content="car service, automotive repair, car workshop, AC service, denting painting, car maintenance, auto repair, vehicle service, car mechanic, automobile service" />
+    <meta name="author" content="Yash Car Workshop" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.webp" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/jeep-hero.webp" as="image" type="image/webp" />
+    <!-- Preload only critical above-the-fold images -->
+    <link rel="preload" href="/jeep-hero.webp" as="image" type="image/webp" fetchpriority="high" />
+    
+    <!-- Critical CSS inlined -->
+    <style>
+      .hero-section { 
+        min-height: 100vh; 
+        position: relative; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .hero-background { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        z-index: 1; 
+      }
+      .hero-background img { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: cover; 
+        object-position: center;
+        display: block;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(59, 130, 246, 0.6) 100%);
+        z-index: 2;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        color: white;
+        padding: 2rem;
+      }
+      .loading-spinner { 
+        width: 40px; 
+        height: 40px; 
+        border: 4px solid #f3f3f3; 
+        border-top: 4px solid #1e3a8a; 
+        border-radius: 50%; 
+        animation: spin 1s linear infinite; 
+      }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Resource hints for performance -->
+    <link rel="dns-prefetch" href="//vercel.app" />
+    <link rel="prefetch" href="/services" />
+    <link rel="prefetch" href="/booking" />
     
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
@@ -25,7 +105,7 @@
       "@type": "AutoRepair",
       "name": "Yash Car Workshop",
       "description": "Professional automotive services including car service, AC repair, denting & painting, and more.",
-      "url": "https://yashcar.netlify.app",
+      "url": "https://yashcar.vercel.app",
       "telephone": "+91-9414609368",
       "email": "rammalviya5@gmail.com",
       "address": {
@@ -38,7 +118,24 @@
     }
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Performance optimization -->
+    <script>
+      // Register service worker for caching
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
     <title>Yash Car Workshop - Professional Automotive Services</title>
   </head>
   <body>
